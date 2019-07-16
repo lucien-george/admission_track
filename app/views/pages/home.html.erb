@@ -1,2 +1,31 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container py-4">
+  <h3>Top rated movies</h3>
+  <div class="row">
+    <% @top_rated.each do |movie| %>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="movie-card p-2 my-4">
+          <p><%= movie['title'] %></p>
+          <p><%= movie['overview'] %></p>
+          <p>(<%= Date.parse(movie['release_date']).year %>)</p>
+          <%= image_tag "https://image.tmdb.org/t/p/w154/#{movie['poster_path']}" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h3>Browse movies</h3>
+  <form action="/">
+    <input type="text" name="movie" placeholder="Search for a movie..." class="w-100 p-2">
+  </form>
+  <div class="row">
+    <% @movies.each do |movie| %>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="movie-card p-2 my-4">
+          <p><%= movie['title'] %></p>
+          <p><%= movie['overview'] %></p>
+          <p>(<%= Date.parse(movie['release_date']).year %>)</p>
+          <%= image_tag "https://image.tmdb.org/t/p/w154/#{movie['poster_path']}" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
