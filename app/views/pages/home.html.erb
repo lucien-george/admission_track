@@ -6,8 +6,12 @@
         <div class="movie-card p-2 my-4">
           <p><%= movie['title'] %></p>
           <p><%= movie['overview'] %></p>
-          <p>(<%= Date.parse(movie['release_date']).year %>)</p>
-          <%= image_tag "https://image.tmdb.org/t/p/w154/#{movie['poster_path']}" %>
+          <% if movie['release_date'].present? %>
+            <p>(<%= Date.parse(movie['release_date']).year %>)</p>
+          <% end %>
+          <% if movie['poster_path'].present? %>
+            <%= image_tag "https://image.tmdb.org/t/p/w154/#{movie['poster_path']}" %>
+          <% end %>
         </div>
       </div>
     <% end %>
@@ -22,8 +26,12 @@
         <div class="movie-card p-2 my-4">
           <p><%= movie['title'] %></p>
           <p><%= movie['overview'] %></p>
-          <p>(<%= Date.parse(movie['release_date']).year %>)</p>
-          <%= image_tag "https://image.tmdb.org/t/p/w154/#{movie['poster_path']}" %>
+          <% if movie['release_date'].present? %>
+            <p>(<%= Date.parse(movie['release_date']).year %>)</p>
+          <% end %>
+          <% if movie['poster_path'].present? %>
+            <%= image_tag "https://image.tmdb.org/t/p/w154/#{movie['poster_path']}" %>
+          <% end %>
         </div>
       </div>
     <% end %>
