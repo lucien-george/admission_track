@@ -10,4 +10,8 @@ class PagesController < ApplicationController
     end
     @top_rated = JSON.parse(open("https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['TMDB_API_KEY']}").read)['results'].first(4)
   end
+
+  private
+
+
 end

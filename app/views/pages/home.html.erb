@@ -1,39 +1,32 @@
-<div class="container py-4">
-  <h3>Top rated movies</h3>
-  <div class="row">
+<div class="container">
+  <%= image_tag "logo.png", class: "logo" %>
+  <h2>Top rated movies</h2>
+  <div class="card-top-container">
     <% @top_rated.each do |movie| %>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="movie-card p-2 my-4">
-          <p><%= movie['title'] %></p>
-          <p><%= movie['overview'] %></p>
-          <% if movie['release_date'].present? %>
-            <p>(<%= Date.parse(movie['release_date']).year %>)</p>
-          <% end %>
-          <% if movie['poster_path'].present? %>
-            <%= image_tag "https://image.tmdb.org/t/p/w154/#{movie['poster_path']}" %>
-          <% end %>
-        </div>
+      <div class="card-top" style="background-image: url('https://image.tmdb.org/t/p/w500/<%= movie['poster_path'] %>')">
+        <h4><%= movie['title'] %></h4>
       </div>
     <% end %>
   </div>
-  <h3>Browse movies</h3>
-  <form action="/">
-    <input type="text" name="movie" placeholder="Search for a movie..." class="w-100 p-2">
+
+  <h2>Browse movies</h2>
+  <form class="search" action="/">
+    <input type="text" name="movie" class="search-input" placeholder="Search for a movie..." />
+    <input type="submit" value="Search" class="btn btn-flat">
   </form>
-  <div class="row">
+
+  <div class="card-movie-container">
     <% @movies.each do |movie| %>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="movie-card p-2 my-4">
-          <p><%= movie['title'] %></p>
-          <p><%= movie['overview'] %></p>
-          <% if movie['release_date'].present? %>
-            <p>(<%= Date.parse(movie['release_date']).year %>)</p>
-          <% end %>
-          <% if movie['poster_path'].present? %>
-            <%= image_tag "https://image.tmdb.org/t/p/w154/#{movie['poster_path']}" %>
-          <% end %>
+      <div class="card-movie">
+        <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
+        <div class="card-movie-infos">
+          <div>
+            <h2><%= movie['title'] %></h2>
+            <p><%= truncate(movie['overview'], length: 80) %></p>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+

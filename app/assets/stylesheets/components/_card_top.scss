@@ -1,0 +1,27 @@
+.card-top {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  flex: 0 0 23%;
+  height: 400px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+.card-top h4 {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 0 2px rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+
+.card-top-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
