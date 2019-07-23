@@ -4,14 +4,17 @@ require 'json'
 class PagesController < ApplicationController
   def home
     if params[:movie].present?
-      @movies = JSON.parse(open("https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API_KEY']}&query=#{params[:movie]}").read)['results']
+      @movies = get_movies(params[:movie])
     else
-      @movies = JSON.parse(open("https://api.themoviedb.org/3/movie/upcoming?api_key=#{ENV['TMDB_API_KEY']}").read)['results']
+      @movies = get_movies
+      params[:movie] = "batman"
     end
-    @top_rated = JSON.parse(open("https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['TMDB_API_KEY']}").read)['results'].first(4)
   end
 
   private
 
+  def get_movies(search = "batman")
+    JSON.parse(open("https://api.themoviedb.org/3/search/movie?api_key=#{ENV['TMDB_API_KEY']}&query=#{search}").read)['results']
+  end
 
 end
