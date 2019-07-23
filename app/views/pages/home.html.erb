@@ -1,15 +1,5 @@
 <div class="container">
   <%= image_tag "logo.png", class: "logo" %>
-  <h2>Top rated movies</h2>
-  <div class="card-top-container">
-    <% @top_rated.each do |movie| %>
-      <div class="card-top" style="background-image: url('https://image.tmdb.org/t/p/w500/<%= movie['poster_path'] %>')">
-        <h4><%= movie['title'] %></h4>
-      </div>
-    <% end %>
-  </div>
-
-  <h2>Browse movies</h2>
   <form class="search" action="/">
     <input type="text" name="movie" class="search-input" placeholder="Search for a movie..." value="<%= params[:movie] %>"/>
     <input type="submit" value="Search" class="btn btn-flat">
@@ -30,7 +20,7 @@
   </div>
 
   <div class="footer">
-    <p>Made with ❤️ to join <a href="#">Le Wagon Coding Bootcamp</a>.</p>
+    <p>Made with ❤️ to join <a href="https://www.lewagon.com/">Le Wagon Coding Bootcamp</a>.</p>
     <p>Powered by <a href="https://www.themoviedb.org/">TMDB.</a></p>
   </div>
 </div>

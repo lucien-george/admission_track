@@ -1,19 +1,34 @@
 .search {
   display: flex;
+  margin: 24px 0;
+  flex-wrap: wrap;
 }
 
 .search-input {
-  flex: 1 0 auto;
-  margin-right: 8px;
+  flex: 1 1 auto;
   border-radius: 4px;
-  padding: 16px;
   border: 1px solid rgba(0,0,0,0.1);
   font-size: 16px;
+  height: 48px;
+  padding-left: 16px;
 }
 
 .search .btn {
   flex: 0 0 100px;
   border: none;
   font-size: 16px;
+  margin-left: 8px;
 
 }
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .search {
+    display: block;
+  }
+  .search .btn {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
