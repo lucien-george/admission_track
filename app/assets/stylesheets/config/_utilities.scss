@@ -9,14 +9,13 @@
 }
 
 
-// Small devices (landscape phones, 576px and up)
+// Smallest devices
 @media (min-width: 300px) {
   .container {
     width: 250px;
   }
 }
 
-// Small devices (landscape phones, 576px and up)
 @media (min-width: 476px) {
   .container {
     width: 400px;
