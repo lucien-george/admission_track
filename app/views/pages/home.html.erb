@@ -8,11 +8,11 @@
   <div class="card-movie-container">
     <% @movies.each do |movie| %>
       <div class="card-movie">
-        <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}" %>
+        <%= image_tag movie.poster_url %>
         <div class="card-movie-infos">
           <div>
-            <h2><%= movie['title'] %></h2>
-            <p><%= truncate(movie['overview'], length: 80) %></p>
+            <h2><%= movie.title %></h2>
+            <p><%= truncate(movie.overview, length: 80) %></p>
           </div>
         </div>
       </div>
