@@ -11,6 +11,10 @@ class Movie
     return "https://image.tmdb.org/t/p/w500/#{@poster_path}" if @poster_path.present?
   end
 
+  def short_overview
+    return overview.truncate(80)
+  end
+
   def self.search(query = "")
     movies = []
 
@@ -22,7 +26,6 @@ class Movie
 
     results = JSON.parse(open(api_endpoint).read)['results']
     results.each do |movie_hash|
-      # raise
       movies << Movie.new(movie_hash.symbolize_keys)
     end
 
