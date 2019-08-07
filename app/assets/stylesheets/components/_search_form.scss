@@ -13,6 +13,19 @@
   padding-left: 16px;
 }
 
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $red;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: darken($red, 5%);
+  color: white;
+}
+
 .search .btn {
   flex: 0 0 100px;
   border: none;
@@ -20,6 +33,7 @@
   margin-left: 8px;
 
 }
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
