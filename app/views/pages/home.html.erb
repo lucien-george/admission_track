@@ -11,6 +11,9 @@
         <div class="card-movie-infos">
           <h2><%= movie.title %></h2>
           <p><%= movie.short_overview %></p>
+          <div class="like-btn">
+            <i class="far fa-heart"></i>
+          </div>
         </div>
       </div>
     <% end %>
@@ -22,3 +25,13 @@
   </div>
 </div>
 
+<script>
+  const likeBtn = document.querySelectorAll('.like-btn i');
+  likeBtn.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.target.classList.toggle('far');
+      event.target.classList.toggle('fas');
+      event.target.classList.toggle('red');
+    });
+  })
+</script>
