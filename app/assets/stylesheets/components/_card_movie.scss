@@ -27,12 +27,17 @@
 
 .like-btn {
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   right: 10px;
+  color: white;
+  opacity: .5;
+  transition: .3s;
+  font-size: 20px;
 }
 
-.red {
-  color: red;
+.active {
+  color: $primary;
+  opacity: 1;
 }
 
 // Smallest device
