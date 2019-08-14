@@ -27,7 +27,6 @@ class Movie
 
     results = JSON.parse(open(api_endpoint).read)['results']
     results.each do |movie_hash|
-      raise
       movies << Movie.new(movie_hash.symbolize_keys)
     end
 
