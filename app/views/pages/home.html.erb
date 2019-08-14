@@ -1,8 +1,8 @@
 <div class="banner" style="background-image: url(<%= image_path 'background.jpg' %>)">
   <div class="container">
-    <h1>AWESOME MOVIE SEARCH</h1>
+    <h1>Awesome Movie Search</h1>
     <p>Awesome app build by Arthur Littmann, to prep for the Le Wagon.</p>
-    <a href="#search" class="button">START SEARCHING</a>
+    <a href="#search" class="button">Look for a Movie!</a>
   </div>
 </div>
 
@@ -14,7 +14,7 @@
 
   <div class="card-movie-container">
     <% @movies.each do |movie| %>
-      <div class="card-movie">
+      <div class="card-movie" id="movie<%= movie.id %>">
         <%= image_tag movie.poster_url %>
         <div class="card-movie-infos">
           <h2><%= movie.title %></h2>
@@ -34,12 +34,30 @@
 </div>
 
 <script>
-  const likeButtons = document.querySelectorAll('.like-btn');
-  likeButtons.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
+  const movies = document.querySelectorAll('.card-movie');
+
+  movies.forEach((movie) => {
+    const likeButton = movie.querySelector('.like-btn');
+
+    if (localStorage.getItem(movie.id) === 'favorite') {
+      likeButton.classList.remove('far');
+      likeButton.classList.add('fas');
+      likeButton.classList.add('active');
+    }
+
+    likeButton.addEventListener('click', (event) => {
+      if (event.target.classList.contains('active')) {
+        localStorage.removeItem(movie.id)
+      } else {
+        localStorage.setItem(movie.id, 'favorite')
+      }
       event.target.classList.toggle('far');
       event.target.classList.toggle('fas');
       event.target.classList.toggle('active');
     });
+  })
+  const likeButtons = document.querySelectorAll('.like-btn');
+  likeButtons.forEach((btn) => {
+    btn
   })
 </script>

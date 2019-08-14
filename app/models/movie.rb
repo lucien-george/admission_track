@@ -1,7 +1,8 @@
 class Movie
-  attr_reader :title, :overview
+  attr_reader :title, :overview, :id
 
   def initialize(args = {})
+    @id = args[:id]
     @title = args[:title]
     @poster_path = args[:poster_path]
     @overview = args[:overview]
@@ -26,6 +27,7 @@ class Movie
 
     results = JSON.parse(open(api_endpoint).read)['results']
     results.each do |movie_hash|
+      raise
       movies << Movie.new(movie_hash.symbolize_keys)
     end
 
