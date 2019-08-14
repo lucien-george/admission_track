@@ -6,6 +6,7 @@
 
 .card-movie {
   background: white;
+  position: relative;
 }
 
 .card-movie > img {
@@ -22,6 +23,16 @@
 
 .card-movie p {
   opacity: .6;
+}
+
+.like-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.red {
+  color: red;
 }
 
 // Smallest device
