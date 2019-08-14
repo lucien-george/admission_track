@@ -1,5 +1,10 @@
 .footer {
-  margin: 24px 0;
+  padding: 16px;
+  background: $footer;
+}
+
+.footer .container {
   display: flex;
   justify-content: space-between;
 }
+

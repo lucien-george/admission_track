@@ -1,0 +1,30 @@
+.banner {
+  padding: 140px 0;
+  background-size: cover;
+  background-position: top;
+  color: white;
+}
+
+.banner .button {
+  padding: 8px 24px;
+  border-radius: 2px;
+  background-color: $primary;
+  color: white;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.banner .button:hover {
+  padding: 8px 48px;
+  letter-spacing: 1px;
+}
+
+.banner h1 {
+  margin: 0;
+}
+
+.banner p {
+  margin: 0;
+  margin-bottom: 32px;
+  opacity: .8;
+}
